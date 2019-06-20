@@ -11,10 +11,23 @@ android {
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
         externalNativeBuild {
             cmake {
-                cppFlags ""
+                cppFlags// "-frtti -fexceptions"
             }
+
         }
+        ndk {
+            abiFilters 'armeabi-v7a'
+        }
+
     }
+//    splits {
+//        abi {
+//            enable true
+//            reset()
+//            include  'armeabi-v7a'//, 'arm64-v8a', 'x86', 'x86_64'
+//            universalApk true
+//        }
+//    }
     buildTypes {
         release {
             minifyEnabled false
@@ -23,7 +36,7 @@ android {
     }
     externalNativeBuild {
         cmake {
-            path "src/main/cpp/CMakeLists.txt"
+            path "CMakeLists.txt"
             version "3.10.2"
         }
     }
