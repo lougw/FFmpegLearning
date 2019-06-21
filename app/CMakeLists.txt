@@ -3,11 +3,17 @@ cmake_minimum_required(VERSION 3.4.1)
 find_library(log-lib log)
 find_library(android-lib android)
 
-add_library(native-lib
+add_library(Player
             SHARED
-            src/main/cpp/native-lib.cpp )
+        src/main/cpp/Player.cpp)
 
 set(JNI_LIBS_DIR ${CMAKE_SOURCE_DIR}/src/main/jniLibs)
+
+
+
+include_directories(${CMAKE_SOURCE_DIR}/src/main/cpp/include)
+
+
 
 add_library(libavcodec
             SHARED
@@ -71,10 +77,8 @@ set_target_properties(libswscale
         ${JNI_LIBS_DIR}/${ANDROID_ABI}/libswscale.so )
 
 
-include_directories(${CMAKE_SOURCE_DIR}/src/main/cpp/includes)
-
 target_link_libraries(
-                      native-lib
+                      Player
                       libavcodec
                       libavdevice
                       libavfilter
