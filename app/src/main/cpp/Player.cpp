@@ -1,4 +1,5 @@
 #include <jni.h>
+#include <string>
 #include <android/log.h>
 
 extern "C" { //编码
@@ -6,7 +7,7 @@ extern "C" { //编码
 #include "libavformat/avformat.h" //像素处理
 #include "libswscale/swscale.h"
 #include "libavutil/avutil.h"
-}
+
 
 #define LOGI(FORMAT, ...) __android_log_print(ANDROID_LOG_INFO,"Lgw",FORMAT,##__VA_ARGS__);
 #define LOGE(FORMAT, ...) __android_log_print(ANDROID_LOG_ERROR,"Lgw",FORMAT,##__VA_ARGS__);
@@ -32,4 +33,5 @@ Java_com_lougw_ffmpeg_FFmpegPlayer_playMyMedia(JNIEnv *env, jobject instance, js
     }
 
     env->ReleaseStringUTFChars(url_, url);
+}
 }

@@ -22,14 +22,6 @@ set_target_properties(libavcodec
                       PROPERTIES IMPORTED_LOCATION
                       ${JNI_LIBS_DIR}/${ANDROID_ABI}/libavcodec.so )
 
-add_library(libavdevice
-        SHARED
-        IMPORTED )
-set_target_properties(libavdevice
-        PROPERTIES IMPORTED_LOCATION
-        ${JNI_LIBS_DIR}/${ANDROID_ABI}/libavdevice.so )
-
-
 add_library(libavfilter
         SHARED
         IMPORTED )
@@ -53,15 +45,6 @@ set_target_properties(libavutil
         PROPERTIES IMPORTED_LOCATION
         ${JNI_LIBS_DIR}/${ANDROID_ABI}/libavutil.so )
 
-
-add_library(libpostproc
-        SHARED
-        IMPORTED )
-set_target_properties(libpostproc
-        PROPERTIES IMPORTED_LOCATION
-        ${JNI_LIBS_DIR}/${ANDROID_ABI}/libpostproc.so )
-
-
 add_library(libswresample
         SHARED
         IMPORTED )
@@ -80,11 +63,9 @@ set_target_properties(libswscale
 target_link_libraries(
                       Player
                       libavcodec
-                      libavdevice
                       libavfilter
                       libavformat
                       libavutil
-                      libpostproc
                       libswresample
                       libswscale
                       ${log-lib} ${android-lib} )
