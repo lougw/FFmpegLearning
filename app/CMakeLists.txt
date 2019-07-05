@@ -5,13 +5,13 @@ find_library(android-lib android)
 
 add_library(Player
             SHARED
-        src/main/cpp/Player.cpp)
+        src/main/cpp/ffmpeg/Player.cpp)
 
 set(JNI_LIBS_DIR ${CMAKE_SOURCE_DIR}/src/main/jniLibs)
 
 
 
-include_directories(${CMAKE_SOURCE_DIR}/src/main/cpp/include)
+include_directories(${CMAKE_SOURCE_DIR}/src/main/cpp/ffmpeg/include)
 
 
 

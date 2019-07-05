@@ -13,4 +13,13 @@ public class FFmpegPlayer {
 
     public native void playMyMedia(String url);
 
+    public native String urlprotocolinfo();
+
+    public native String avformatinfo();
+
+    public native String avcodecinfo();
+
+    public native String avfilterinfo();
+
+    public native String configurationinfo();
 }
